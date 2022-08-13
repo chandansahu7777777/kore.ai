@@ -1,0 +1,42 @@
+<div class="d-flex">
+  <div class="col-sm-12 shadow-right ">
+
+    <div style="border: 1px dashed black; height: 60vh; width: 99vw;"
+      class="d-flex justify-content-center align-items-center p-1 position-relative" (drop)="drop($event)"
+      (dragover)="$event.preventDefault()">
+      <div *ngIf="!image" class="image-txt cp" (click)="filechooser()">
+        + Click here to upload image / drop image.
+
+      </div>
+      <input type="file" (change)="handleFile($event)" id="image_choose" name="image_choose"
+        accept="image/png, image/jpeg" style="display: none;">
+      <img *ngIf="image" [src]="image" style="height: 58vh;">
+      <div class="position-absolute" style="top: 5px; ">
+        <div *ngFor="let item of textDiv; let i = index">
+            <!-- <div *ngIf="!item.selected" id="box{{i}}" >{{item.text}}</div> -->
+            <input  id="box{{i}}" name="box{{i}}" class="TextInput position-absolute" style="border: 1px solid grey; background-color: transparent; border: 0;"
+              [(ngModel)]="item.text" (dragstart)="dragInput($event,'box{{i}}')">
+         
+        </div>
+      </div>
+
+
+    </div>
+    <div class="d-flex mt-5">
+      <div class="col text-center border-tool" (dragstart)="drag($event,'text')" draggable="true">
+        + Add text
+      </div>
+      <div class="col text-center border-tool">
+        rotate +90
+      </div>
+      <div class="col text-center border-tool">
+        rotate -90
+      </div>
+
+    </div>
+  </div>
+  <!-- <div class="col-sm-4 shadow-right">
+    d
+  </div> -->
+
+</div>

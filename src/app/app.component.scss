@@ -1,0 +1,9 @@
+$primary-colour : rgb(137, 140, 238);
+$text-colour : black;
+$text-secondary-colour : #fff;
+$secondar-colur : rgb(179, 175, 175);
+.header{
+    background-color: $primary-colour;
+    color: $text-secondary-colour;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
